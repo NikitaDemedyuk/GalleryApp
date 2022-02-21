@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		113E21E327C4171A00AE4169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21E227C4171A00AE4169 /* AppDelegate.swift */; };
 		113E21E527C4171A00AE4169 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21E427C4171A00AE4169 /* SceneDelegate.swift */; };
-		113E21E727C4171A00AE4169 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21E627C4171A00AE4169 /* ViewController.swift */; };
+		113E21E727C4171A00AE4169 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21E627C4171A00AE4169 /* mainVC.swift */; };
 		113E21EA27C4171A00AE4169 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113E21E827C4171A00AE4169 /* Main.storyboard */; };
 		113E21EC27C4171E00AE4169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 113E21EB27C4171E00AE4169 /* Assets.xcassets */; };
 		113E21EF27C4171E00AE4169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113E21ED27C4171E00AE4169 /* LaunchScreen.storyboard */; };
+		113E21FA27C4178300AE4169 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21F927C4178300AE4169 /* GalleryCollectionView.swift */; };
+		113E21FC27C417B300AE4169 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */; };
+		113E21FE27C417D200AE4169 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FD27C417D200AE4169 /* Profile.swift */; };
+		113E220027C417E500AE4169 /* ProfileArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FF27C417E500AE4169 /* ProfileArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		113E21DF27C4171A00AE4169 /* GalleryApp(BGSoft).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GalleryApp(BGSoft).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		113E21E227C4171A00AE4169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		113E21E427C4171A00AE4169 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		113E21E627C4171A00AE4169 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		113E21E627C4171A00AE4169 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
 		113E21E927C4171A00AE4169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		113E21EB27C4171E00AE4169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		113E21EE27C4171E00AE4169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		113E21F027C4171E00AE4169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		113E21F927C4178300AE4169 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		113E21FD27C417D200AE4169 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		113E21FF27C417E500AE4169 /* ProfileArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,43 @@
 		113E21E127C4171A00AE4169 /* GalleryApp(BGSoft) */ = {
 			isa = PBXGroup;
 			children = (
+				113E21F827C4174A00AE4169 /* Controller */,
+				113E21F727C4174400AE4169 /* View */,
+				113E21F627C4173A00AE4169 /* Model */,
 				113E21E227C4171A00AE4169 /* AppDelegate.swift */,
 				113E21E427C4171A00AE4169 /* SceneDelegate.swift */,
-				113E21E627C4171A00AE4169 /* ViewController.swift */,
 				113E21E827C4171A00AE4169 /* Main.storyboard */,
 				113E21EB27C4171E00AE4169 /* Assets.xcassets */,
 				113E21ED27C4171E00AE4169 /* LaunchScreen.storyboard */,
 				113E21F027C4171E00AE4169 /* Info.plist */,
 			);
 			path = "GalleryApp(BGSoft)";
+			sourceTree = "<group>";
+		};
+		113E21F627C4173A00AE4169 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				113E21FD27C417D200AE4169 /* Profile.swift */,
+				113E21FF27C417E500AE4169 /* ProfileArray.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		113E21F727C4174400AE4169 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				113E21F927C4178300AE4169 /* GalleryCollectionView.swift */,
+				113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		113E21F827C4174A00AE4169 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				113E21E627C4171A00AE4169 /* mainVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113E21E727C4171A00AE4169 /* ViewController.swift in Sources */,
+				113E21E727C4171A00AE4169 /* mainVC.swift in Sources */,
+				113E21FE27C417D200AE4169 /* Profile.swift in Sources */,
+				113E220027C417E500AE4169 /* ProfileArray.swift in Sources */,
+				113E21FC27C417B300AE4169 /* ImageCollectionViewCell.swift in Sources */,
+				113E21FA27C4178300AE4169 /* GalleryCollectionView.swift in Sources */,
 				113E21E327C4171A00AE4169 /* AppDelegate.swift in Sources */,
 				113E21E527C4171A00AE4169 /* SceneDelegate.swift in Sources */,
 			);
