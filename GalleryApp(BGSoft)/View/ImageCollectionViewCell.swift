@@ -9,7 +9,8 @@ import UIKit
 
 class imageCollectionViewCell: UICollectionViewCell {
     static let identifier = "imageCollectionViewCell"
-
+    
+   
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -32,10 +33,11 @@ class imageCollectionViewCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir Next", size: 36.0)
-        label.font = UIFont.systemFont(ofSize: 36.0, weight: .ultraLight)
-        
+        label.font = UIFont(name: "Avenir Next", size: 32.0)
+        label.font = UIFont.systemFont(ofSize: 32.0, weight: .light)
+        label.textAlignment = .center;
         label.textColor = .white
+        label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,11 +45,9 @@ class imageCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-       
         addSubview(imageBackgroundView)
         addSubview(imageView)
         addSubview(nameLabel)
-        
         
         imageBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageBackgroundView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
@@ -60,6 +60,8 @@ class imageCollectionViewCell: UICollectionViewCell {
         imageView.bottomAnchor.constraint(equalTo: imageBackgroundView.bottomAnchor).isActive = true
         
         nameLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 500).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 10).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 10).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
     }
@@ -76,7 +78,7 @@ class imageCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure(with urlString: String) {
         guard let url = URL(string: urlString) else {
             return

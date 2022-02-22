@@ -17,6 +17,7 @@
 		113E21FC27C417B300AE4169 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */; };
 		113E21FE27C417D200AE4169 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FD27C417D200AE4169 /* Profile.swift */; };
 		113E220027C417E500AE4169 /* ProfileArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FF27C417E500AE4169 /* ProfileArray.swift */; };
+		11D6B17F27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B17E27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		113E21FD27C417D200AE4169 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		113E21FF27C417E500AE4169 /* ProfileArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileArray.swift; sourceTree = "<group>"; };
+		11D6B17E27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				113E21F927C4178300AE4169 /* GalleryCollectionView.swift */,
 				113E21FB27C417B300AE4169 /* ImageCollectionViewCell.swift */,
+				11D6B17E27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				113E21E727C4171A00AE4169 /* mainVC.swift in Sources */,
 				113E21FE27C417D200AE4169 /* Profile.swift in Sources */,
+				11D6B17F27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift in Sources */,
 				113E220027C417E500AE4169 /* ProfileArray.swift in Sources */,
 				113E21FC27C417B300AE4169 /* ImageCollectionViewCell.swift in Sources */,
 				113E21FA27C4178300AE4169 /* GalleryCollectionView.swift in Sources */,

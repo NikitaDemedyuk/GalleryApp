@@ -11,7 +11,6 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     
     var profiles = [Profile]()
     
-    
     init() {
         let layout = UICollectionViewFlowLayout()
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -22,33 +21,18 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         dataSource = self
         
         contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.leftDistanceToView)
-        //layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.minimumLineSpacing = Constants.galleryMinimumLineSpacing
         layout.minimumInteritemSpacing = 50
         register(imageCollectionViewCell.self, forCellWithReuseIdentifier: imageCollectionViewCell.identifier)
         translatesAutoresizingMaskIntoConstraints = false
         showsHorizontalScrollIndicator = false
     }
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /*
-    private var collectionView:UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
-        layout.minimumLineSpacing = 50
-        layout.minimumInteritemSpacing = 50
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(imageCollectionViewCell.self, forCellWithReuseIdentifier: imageCollectionViewCell.identifier)
-        return collectionView
-    }()
-     
-    */
-     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constants.galleryItemWidth, height: Constants.galleryItemHeight)
     }
@@ -58,7 +42,10 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageURLString = "https://dev.bgsoft.biz/task/" + "\(profiles[indexPath.row].id!)" + ".jpg"
+        guard let userId = profiles[indexPath.row].id else {
+            return UICollectionViewCell()
+        }
+        let imageURLString = "https://dev.bgsoft.biz/task/" + "\(userId)" + ".jpg"
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCollectionViewCell.identifier, for: indexPath) as? imageCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -67,6 +54,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         return cell
     }
     
+   
     func fetchPhotos() {
         guard let url = URL(string: "https://dev.bgsoft.biz/task/credits.json") else {
             return
@@ -99,4 +87,3 @@ struct Constants {
     static let galleryItemWidth = UIScreen.main.bounds.width - Constants.leftDistanceToView - Constants.rightDistanceToView - Constants.galleryMinimumLineSpacing
     static let galleryItemHeight = UIScreen.main.bounds.height * 0.8
 }
-

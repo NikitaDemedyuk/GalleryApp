@@ -13,7 +13,10 @@ class mainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.fetchPhotos()
+    
+        collectionView.collectionViewLayout = GalleryCollectionFlowLayout(itemSize: CGSize(width: Constants.galleryItemWidth, height: Constants.galleryItemHeight))
         
         view.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
