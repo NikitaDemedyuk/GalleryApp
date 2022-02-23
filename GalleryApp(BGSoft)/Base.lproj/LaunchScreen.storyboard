@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,55 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTO GALLERY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idg-8Y-Mqw">
+                                <rect key="frame" x="50" y="660" width="668" height="63"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="46"/>
+                                </variation>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Z3o-bz-JTM">
+                                <rect key="frame" x="264" y="340" width="240" height="240"/>
+                                <color key="backgroundColor" red="0.55271933533241335" green="1" blue="0.49225836789443123" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="ClX-1Y-GWB">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="240"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="210" id="PC9-xi-hgF">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="240"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.59894931158190678" green="0.69788176487288112" blue="0.76867932081222534" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Z3o-bz-JTM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MZp-oK-D2K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="idg-8Y-Mqw" secondAttribute="trailing" constant="50" id="Q72-ei-4wv"/>
+                            <constraint firstItem="idg-8Y-Mqw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="kdU-2u-N0N"/>
+                            <constraint firstItem="Z3o-bz-JTM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="lc2-HZ-c4E">
+                                <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="70"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="320"/>
+                            </constraint>
+                            <constraint firstItem="idg-8Y-Mqw" firstAttribute="top" secondItem="Z3o-bz-JTM" secondAttribute="bottom" constant="50" id="pGT-9Q-VFK">
+                                <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="idg-8Y-Mqw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zM6-dD-Be6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconPhoto" width="640" height="640"/>
+    </resources>
 </document>

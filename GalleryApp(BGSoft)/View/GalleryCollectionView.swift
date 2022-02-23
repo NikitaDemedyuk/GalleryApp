@@ -11,6 +11,9 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     
     var profiles = [Profile]()
     
+    private let cache = NSCache<NSNumber, UIImage>()
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
+    
     init() {
         let layout = UICollectionViewFlowLayout()
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -20,12 +23,11 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         delegate = self
         dataSource = self
         
-        contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.leftDistanceToView)
+        contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
         layout.minimumLineSpacing = Constants.galleryMinimumLineSpacing
-        layout.minimumInteritemSpacing = 50
         register(imageCollectionViewCell.self, forCellWithReuseIdentifier: imageCollectionViewCell.identifier)
         translatesAutoresizingMaskIntoConstraints = false
-        showsHorizontalScrollIndicator = false
+        showsHorizontalScrollIndicator = true
     }
         
     required init?(coder: NSCoder) {
@@ -45,12 +47,24 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         guard let userId = profiles[indexPath.row].id else {
             return UICollectionViewCell()
         }
+        let itemNumber = NSNumber(value: indexPath.item)
         let imageURLString = "https://dev.bgsoft.biz/task/" + "\(userId)" + ".jpg"
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCollectionViewCell.identifier, for: indexPath) as? imageCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         cell.nameLabel.text = profiles[indexPath.row].user_name
-        cell.configure(with: imageURLString)
+        if let cachedImage = self.cache.object(forKey: itemNumber) {
+            print("Using a cached image for item: \(itemNumber)")
+            cell.imageView.image = cachedImage
+        } else {
+            cell.configure(urlString: imageURLString) { image in
+                guard let image = image else { return }
+                cell.imageView.image = image
+                self.cache.setObject(image, forKey: itemNumber)
+            }
+        }
+        
         return cell
     }
     
@@ -68,7 +82,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
             
             do {
                 let jsonProfiles = try JSONDecoder().decode(ProfileArray.self, from: data)
-                DispatchQueue.main.async {
+                DispatchQueue.main.async() {
                     self?.profiles = jsonProfiles.profiles
                     self?.reloadData()
                 }
@@ -80,10 +94,5 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     }
 }
 
-struct Constants {
-    static let leftDistanceToView: CGFloat = 10
-    static let rightDistanceToView: CGFloat = 10
-    static let galleryMinimumLineSpacing: CGFloat = 50
-    static let galleryItemWidth = UIScreen.main.bounds.width - Constants.leftDistanceToView - Constants.rightDistanceToView - Constants.galleryMinimumLineSpacing
-    static let galleryItemHeight = UIScreen.main.bounds.height * 0.8
-}
+
+

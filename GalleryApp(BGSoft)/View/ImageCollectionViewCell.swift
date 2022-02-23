@@ -5,13 +5,15 @@
 //  Created by Никита on 21.02.22.
 //
 
+import Foundation
 import UIKit
 
 class imageCollectionViewCell: UICollectionViewCell {
     static let identifier = "imageCollectionViewCell"
     
+    var imageCache = NSCache<NSString, UIImage>()
    
-    private let imageView: UIImageView = {
+    let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -79,20 +81,23 @@ class imageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with urlString: String) {
+    func configure(urlString: String, completion: @escaping (UIImage?) -> ()) {
         guard let url = URL(string: urlString) else {
             return
         }
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self?.imageView.image = image
-            }
-        }.resume()
+        
+        
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    //self?.imageView.image = image
+                    completion(image)
+                }
+            }.resume()
+        
     }
-    
 }
 

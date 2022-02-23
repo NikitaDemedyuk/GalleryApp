@@ -12,5 +12,5 @@ struct Profile: Identifiable, Hashable, Codable {
     var user_name: String
     var user_url: String
     var colors: [String]
-    var photo_url: String
+    var photo_url: URL
 }
