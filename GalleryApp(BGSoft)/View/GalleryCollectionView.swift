@@ -10,21 +10,19 @@ import UIKit
 class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var profiles = [Profile]()
-    
-    private let cache = NSCache<NSNumber, UIImage>()
-    private let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    let cache = NSCache<NSNumber, UIImage>()
+    let utilityQueue = DispatchQueue.global(qos: .utility)
     
     init() {
-        let layout = UICollectionViewFlowLayout()
+        let layout = GalleryCollectionFlowLayout(/*itemSize: CGSize(width: ConstantsBackgroundView.galleryItemWidth, height: ConstantsBackgroundView.galleryItemHeight)*/)
         super.init(frame: .zero, collectionViewLayout: layout)
         self.backgroundColor = .white
-        layout.scrollDirection = .horizontal
         
-        delegate = self
-        dataSource = self
+        setupDelegate()
         
-        contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
-        layout.minimumLineSpacing = Constants.galleryMinimumLineSpacing
+        contentInset = UIEdgeInsets(top: ConstantsBackgroundView.topDistanceToView, left: ConstantsBackgroundView.leftDistanceToView, bottom: ConstantsBackgroundView.bottomDistanceToView, right: ConstantsBackgroundView.rightDistanceToView)
+    
         register(imageCollectionViewCell.self, forCellWithReuseIdentifier: imageCollectionViewCell.identifier)
         translatesAutoresizingMaskIntoConstraints = false
         showsHorizontalScrollIndicator = true
@@ -34,9 +32,13 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupDelegate() {
+        delegate = self
+        dataSource = self
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constants.galleryItemWidth, height: Constants.galleryItemHeight)
+        return CGSize(width: ConstantsBackgroundView.galleryItemWidth, height: ConstantsBackgroundView.galleryItemHeight)
     }
      
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,6 +46,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let userId = profiles[indexPath.row].id else {
             return UICollectionViewCell()
         }
@@ -64,11 +67,9 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
                 self.cache.setObject(image, forKey: itemNumber)
             }
         }
-        
         return cell
     }
     
-   
     func fetchPhotos() {
         guard let url = URL(string: "https://dev.bgsoft.biz/task/credits.json") else {
             return

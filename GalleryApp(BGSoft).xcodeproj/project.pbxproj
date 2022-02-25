@@ -18,7 +18,10 @@
 		113E21FE27C417D200AE4169 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FD27C417D200AE4169 /* Profile.swift */; };
 		113E220027C417E500AE4169 /* ProfileArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113E21FF27C417E500AE4169 /* ProfileArray.swift */; };
 		11D6B17F27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B17E27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift */; };
-		11D6B18427C6487B0044C1FD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B18327C6487B0044C1FD /* Constants.swift */; };
+		11D6B18427C6487B0044C1FD /* ConstantsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B18327C6487B0044C1FD /* ConstantsFlowLayout.swift */; };
+		11DAFEC827C810CE00C58B62 /* ConstantsNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAFEC727C810CE00C58B62 /* ConstantsNameLabel.swift */; };
+		11DAFECA27C8135200C58B62 /* ConstantsImageBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAFEC927C8135200C58B62 /* ConstantsImageBackgroundView.swift */; };
+		11DAFECC27C8AED900C58B62 /* ConstantsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAFECB27C8AED900C58B62 /* ConstantsCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +38,10 @@
 		113E21FD27C417D200AE4169 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		113E21FF27C417E500AE4169 /* ProfileArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileArray.swift; sourceTree = "<group>"; };
 		11D6B17E27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionFlowLayout.swift; sourceTree = "<group>"; };
-		11D6B18327C6487B0044C1FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		11D6B18327C6487B0044C1FD /* ConstantsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsFlowLayout.swift; sourceTree = "<group>"; };
+		11DAFEC727C810CE00C58B62 /* ConstantsNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsNameLabel.swift; sourceTree = "<group>"; };
+		11DAFEC927C8135200C58B62 /* ConstantsImageBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsImageBackgroundView.swift; sourceTree = "<group>"; };
+		11DAFECB27C8AED900C58B62 /* ConstantsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +118,10 @@
 		11D6B18227C648610044C1FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				11D6B18327C6487B0044C1FD /* Constants.swift */,
+				11D6B18327C6487B0044C1FD /* ConstantsFlowLayout.swift */,
+				11DAFEC727C810CE00C58B62 /* ConstantsNameLabel.swift */,
+				11DAFEC927C8135200C58B62 /* ConstantsImageBackgroundView.swift */,
+				11DAFECB27C8AED900C58B62 /* ConstantsCollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,14 +198,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				113E21E727C4171A00AE4169 /* mainVC.swift in Sources */,
-				11D6B18427C6487B0044C1FD /* Constants.swift in Sources */,
+				11D6B18427C6487B0044C1FD /* ConstantsFlowLayout.swift in Sources */,
 				113E21FE27C417D200AE4169 /* Profile.swift in Sources */,
+				11DAFEC827C810CE00C58B62 /* ConstantsNameLabel.swift in Sources */,
+				11DAFECC27C8AED900C58B62 /* ConstantsCollectionView.swift in Sources */,
 				11D6B17F27C4CAAF0044C1FD /* GalleryCollectionFlowLayout.swift in Sources */,
 				113E220027C417E500AE4169 /* ProfileArray.swift in Sources */,
 				113E21FC27C417B300AE4169 /* ImageCollectionViewCell.swift in Sources */,
 				113E21FA27C4178300AE4169 /* GalleryCollectionView.swift in Sources */,
 				113E21E327C4171A00AE4169 /* AppDelegate.swift in Sources */,
 				113E21E527C4171A00AE4169 /* SceneDelegate.swift in Sources */,
+				11DAFECA27C8135200C58B62 /* ConstantsImageBackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,31 +9,31 @@ import UIKit
 
 class GalleryCollectionFlowLayout: UICollectionViewFlowLayout {
     
-    var scaleOffset: CGFloat = 200
-    var scaleFactor: CGFloat = 0.9
+    var scaleOffset: CGFloat = ConstantsBackgroundView.galleryItemWidth
+    var scaleFactor: CGFloat = ConstantsFlowLayout.scaleFactor
     
     required init?(coder _: NSCoder) {
         fatalError()
     }
     
-    init(itemSize: CGSize) {
+    override init(/*itemSize: CGSize*/) {
         super.init()
-        self.itemSize = itemSize
-        minimumLineSpacing = Constants.galleryMinimumLineSpacing
+        //self.itemSize = itemSize
+        minimumLineSpacing = ConstantsBackgroundView.galleryMinimumLineSpacing
         scrollDirection = .horizontal
+        self.minimumLineSpacing = ConstantsBackgroundView.galleryMinimumLineSpacing
     }
        
-    
     override func shouldInvalidateLayout(forBoundsChange _: CGRect) -> Bool {
         return true
     }
-
+    
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let collectionView = self.collectionView,
             let superAttributes = super.layoutAttributesForElements(in: rect) else {
                 return super.layoutAttributesForElements(in: rect)
         }
-        
+                
         let contentOffset = collectionView.contentOffset
         let size = collectionView.bounds.size
         
@@ -43,7 +43,7 @@ class GalleryCollectionFlowLayout: UICollectionViewFlowLayout {
         guard case let newAttributesArray as [UICollectionViewLayoutAttributes] = NSArray(array: superAttributes, copyItems: true) else {
             return nil
         }
-        
+                 
         newAttributesArray.forEach {
             let distanceFromCenter = visibleCenterX - $0.center.x
             let absDistanceFromCenter = min(abs(distanceFromCenter), self.scaleOffset)
@@ -90,11 +90,9 @@ class GalleryCollectionFlowLayout: UICollectionViewFlowLayout {
         let offset = newOffsetX - collectionView.contentOffset.x
         
         if (velocity.x < 0 && offset > 0) || (velocity.x > 0 && offset < 0) {
-            let pageWidth = Constants.galleryItemWidth * 2 + minimumLineSpacing
+            let pageWidth = ConstantsBackgroundView.galleryItemWidth + minimumLineSpacing
             newOffsetX += velocity.x > 0 ? pageWidth : -pageWidth
         }
-        
         return CGPoint(x: newOffsetX, y: proposedContentOffset.y)
     }
-    
 }

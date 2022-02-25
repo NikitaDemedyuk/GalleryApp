@@ -9,7 +9,7 @@ import Foundation
 
 struct ProfileArray: Decodable {
     var profiles: [Profile]
-    
+   
     private struct ProfileCodingKeys: CodingKey {
         var intValue: Int?
         init?(intValue: Int) {
@@ -32,9 +32,5 @@ struct ProfileArray: Decodable {
             object.id = key.stringValue
             profiles.append(object)
         }
-    }
-
-    func sortProfiles() -> [Profile] {
-        profiles.sorted(by: {$0.user_name < $1.user_name})
     }
 }
